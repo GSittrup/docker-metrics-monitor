@@ -1,0 +1,17 @@
+# Binaries and build artifacts
+bin/
+build/
+*.o
+*.out
+*.exe
+
+# Go specific
+vendor/
+go.work
+
+# OS & Editor
+.DS_Store
+.vscode/
+*.swp
+*.swo
+*~
