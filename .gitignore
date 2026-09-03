@@ -15,4 +15,3 @@ go.work
 *.swp
 *.swo
 *~
-.clangd
