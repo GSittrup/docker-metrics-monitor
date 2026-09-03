@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -Wpedantic -Og -g -fsanitize=address,undefined
 
 BUILD_DIR = build
 TARGET = $(BUILD_DIR)/main
-SRC = main.c
+SRC = main.c cpu.c
 
 $(TARGET): $(SRC) | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
