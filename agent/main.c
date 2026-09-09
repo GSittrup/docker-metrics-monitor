@@ -2,16 +2,16 @@
 #include <stdio.h>
 
 int main(void) {
-  struct cpu_stats stats = {0};
-  if (cpu_read_stats(&stats) != 0) {
+  struct cpu_stats prev = {0};
+  struct cpu_stats curr = {0};
+  if (cpu_read_stats(&prev) || cpu_read_stats(&curr) != 0) {
     fprintf(stderr, "Error: couldnt read /proc/stat\n");
     return 1;
   }
 
-  printf("user: %lu, nice: %lu, system: %lu, idle: %lu, iowait: %lu, irq: %lu, "
-         "softirq: %lu, steal: %lu\n",
-         stats.user, stats.nice, stats.system, stats.idle, stats.iowait,
-         stats.irq, stats.softirq, stats.steal);
+  double usage = cpu_calculated_usage(&prev, &curr);
+
+  printf("cpu usage: %.2f%%\n", usage);
 
   return 0;
 }

@@ -17,6 +17,6 @@ struct cpu_stats {
 int cpu_read_stats(struct cpu_stats *out_stats);
 
 double cpu_calculated_usage(const struct cpu_stats *prev,
-                            const struct cpu_stats *current);
+                            const struct cpu_stats *curr);
 
 #endif
